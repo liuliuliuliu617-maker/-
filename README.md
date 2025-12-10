@@ -1,1 +1,1 @@
-由于models较大，无法直接上传到github中，若需要运行系统请点击.gitattributes，使用git lfs依次将相应文件下载到本地并存放在相应文件夹中，位置如.gitattributes中链接所示
+由于models较大，无法直接上传到github中，若需要运行系统请点击.gitattributes，使用git lfs依次将相应文件下载到本地并存放在相应文件夹中，位置如.gitattributes中链接所示，同时db.py中数据库请修改为自己的数据库
