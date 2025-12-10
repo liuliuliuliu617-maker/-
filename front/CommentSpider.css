@@ -1,0 +1,239 @@
+/* 整体背景 */
+.spider-page {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 16px;
+  box-sizing: border-box;
+
+  background: radial-gradient(circle at top left, #e0f0ff, #f8f9ff 40%, #fdf2ff);
+}
+
+/* 卡片 */
+.spider-card {
+  width: 720px;
+  max-width: 100%;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 18px;
+  box-shadow: 0 18px 45px rgba(15, 23, 42, 0.16);
+  padding: 26px 28px 24px;
+  backdrop-filter: blur(18px);
+  box-sizing: border-box;
+}
+
+/* 标题与副标题 */
+.spider-title {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 600;
+  color: #1f2933;
+}
+
+.spider-subtitle {
+  margin: 8px 0 20px;
+  font-size: 14px;
+  color: #6b7280;
+}
+
+/* 表单 */
+.spider-form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.spider-label {
+  font-size: 14px;
+  font-weight: 500;
+  color: #374151;
+}
+
+/* 板块下拉选择 */
+.spider-select-row {
+  margin-top: 4px;
+}
+
+.spider-select {
+  width: 100%;
+  height: 40px;
+  padding: 0 12px;
+  border-radius: 10px;
+  border: 1px solid #dde3f0;
+  font-size: 14px;
+  outline: none;
+  background-color: #f9fafb;
+  transition: all 0.2s ease;
+}
+
+.spider-select:focus {
+  background-color: #ffffff;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 1px rgba(37, 99, 235, 0.1);
+}
+
+/* 输入 + 按钮横排 */
+.spider-input-row {
+  display: flex;
+  gap: 10px;
+  margin-top: 2px;
+}
+
+.spider-input {
+  flex: 1;
+  height: 40px;
+  padding: 0 12px;
+  border-radius: 10px;
+  border: 1px solid #dde3f0;
+  font-size: 14px;
+  outline: none;
+  background-color: #f9fafb;
+  transition: all 0.2s ease;
+}
+
+.spider-input:focus {
+  background-color: #ffffff;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 1px rgba(37, 99, 235, 0.1);
+}
+
+/* 提示文字 */
+.spider-tip {
+  font-size: 12px;
+  color: #9ca3af;
+  margin-top: 4px;
+}
+
+/* 按钮 */
+.spider-btn {
+  min-width: 110px;
+  padding: 0 18px;
+  border-radius: 10px;
+  border: none;
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 8px 20px rgba(37, 99, 235, 0.35);
+}
+
+.spider-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.spider-btn:not(:disabled):hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 26px rgba(37, 99, 235, 0.45);
+}
+
+.spider-btn:not(:disabled):active {
+  transform: translateY(0);
+  box-shadow: 0 6px 16px rgba(37, 99, 235, 0.35);
+}
+
+/* 进度条区域 */
+.spider-progress {
+  margin-top: 18px;
+}
+
+.spider-progress-bar {
+  width: 100%;
+  height: 8px;
+  border-radius: 999px;
+  background: #e5e7eb;
+  overflow: hidden;
+}
+
+.spider-progress-inner {
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #22c55e, #3b82f6);
+  width: 0;
+  transition: width 0.35s ease;
+}
+
+.spider-progress-text {
+  margin-top: 6px;
+  font-size: 13px;
+  color: #4b5563;
+}
+
+/* 错误提示 */
+.spider-error {
+  margin-top: 14px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: rgba(248, 113, 113, 0.12);
+  border: 1px solid rgba(248, 113, 113, 0.5);
+  color: #b91c1c;
+  font-size: 13px;
+}
+
+/* 结果区域 */
+.spider-result {
+  margin-top: 20px;
+  padding-top: 14px;
+  border-top: 1px solid #e5e7eb;
+}
+
+.spider-result-header {
+  font-size: 14px;
+  font-weight: 500;
+  color: #374151;
+  margin-bottom: 10px;
+}
+
+/* 评论列表 */
+.spider-list {
+  max-height: 360px;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+/* 单条评论卡片 */
+.comment-item {
+  display: flex;
+  gap: 10px;
+  padding: 10px 12px;
+  margin-bottom: 8px;
+  border-radius: 10px;
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+}
+
+.comment-tag {
+  flex-shrink: 0;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: #e0f2fe;
+  color: #0369a1;
+  font-size: 12px;
+  align-self: flex-start;
+}
+
+.comment-text {
+  font-size: 14px;
+  color: #111827;
+  line-height: 1.5;
+  white-space: pre-wrap;
+}
+
+/* 小屏适配 */
+@media (max-width: 640px) {
+  .spider-card {
+    padding: 20px 18px 18px;
+  }
+
+  .spider-input-row {
+    flex-direction: column;
+  }
+
+  .spider-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}

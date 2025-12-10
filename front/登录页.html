@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>登录页</title>
+  <style>
+    :root { --bg:#f5f7fb; --card:#fff; --primary:#2d8cf0; --success:#2f9e44; --error:#d9534f; --muted:#6b7280; }
+    html,body { height:100%; margin:0; font-family: "Segoe UI", Roboto, "Microsoft YaHei", Arial, sans-serif; background:var(--bg); }
+    .wrap { min-height:100%; display:flex; align-items:center; justify-content:center; padding:24px; box-sizing:border-box; }
+    .card { width:360px; background:var(--card); box-shadow:0 8px 24px rgba(17,24,39,0.06); border-radius:10px; padding:26px; box-sizing:border-box; }
+    h1 { margin:0 0 14px 0; font-size:20px; color:#111827; text-align:center; }
+    .field { margin-bottom:12px; }
+    label { display:block; font-size:13px; color:var(--muted); margin-bottom:6px; }
+    input[type="text"], input[type="password"] { width:100%; padding:10px 12px; font-size:14px; border:1px solid #e6eef6; border-radius:8px; box-sizing:border-box; outline:none; transition:box-shadow .12; }
+    input:focus { box-shadow:0 0 0 4px rgba(45,140,240,0.08); border-color:var(--primary); }
+    .actions { margin-top:12px; display:flex; gap:8px; }
+    #loginBtn { flex:1; padding:10px 12px; background:var(--primary); color:#fff; border:none; border-radius:8px; font-size:15px; cursor:pointer; }
+    #loginBtn[disabled] { opacity:0.7; cursor:not-allowed; }
+    #msg { margin-top:12px; font-size:14px; min-height:20px; text-align:center; }
+    #msg.error { color:var(--error); }
+    #msg.success { color:var(--success); font-weight:600; }
+    .small { font-size:12px; color:var(--muted); text-align:center; margin-top:8px; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="card" role="main" aria-label="登录卡片">
+      <h1>登录</h1>
+
+      <div class="field">
+        <label for="account">账号</label>
+        <input id="account" type="text" placeholder="请输入账号" autocomplete="username" />
+      </div>
+
+      <div class="field">
+        <label for="password">密码</label>
+        <input id="password" type="password" placeholder="请输入密码" autocomplete="current-password" />
+      </div>
+
+      <div class="actions">
+        <button id="loginBtn" type="button">登录</button>
+      </div>
+
+      <div id="msg" aria-live="polite"></div>
+      <div class="small">如果页面没有反应，请打开浏览器控制台查看错误信息（F12）。</div>
+    </div>
+  </div>
+
+  <!-- 重要：改为绝对路径 /front/login.js，匹配 Flask static_url_path='/front' -->
+  <script src="/front/login.js"></script>
+</body>
+</html>

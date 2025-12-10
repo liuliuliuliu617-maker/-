@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>B站视频评论爬取</title>
+  <!-- 复用 CommentSpider 的样式 -->
+  <link rel="stylesheet" href="/front/CommentSpider.css" />
+</head>
+<body>
+  <div class="spider-page">
+    <div class="spider-card">
+      <h1 class="spider-title">B站视频评论爬取</h1>
+      <p class="spider-subtitle">
+        输入视频链接，一键抓取并分析弹幕与评论
+      </p>
+
+      <form class="spider-form" id="spider-form">
+        <label class="spider-label">板块</label>
+        <div class="spider-select-row">
+          <select class="spider-select" id="spider-sector">
+            <option value="">请选择板块</option>
+            <option value="APEX">APEX</option>
+            <option value="cos">cos</option>
+            <option value="FPS">FPS</option>
+            <option value="PUBG">PUBG</option>
+            <option value="历史品鉴">历史品鉴</option>
+            <option value="三角洲">三角洲</option>
+            <option value="时政">时政</option>
+            <option value="英雄联盟">英雄联盟</option>
+          </select>
+        </div>
+
+        <label class="spider-label">视频 URL</label>
+        <div class="spider-input-row">
+          <input
+            class="spider-input"
+            id="spider-url"
+            placeholder="例如：https://www.bilibili.com/video/BVxxxxxxxxx"
+          />
+          <button class="spider-btn" id="spider-btn" type="submit">
+            开始爬取
+          </button>
+        </div>
+        <div class="spider-tip">
+          支持标准 B 站视频链接，建议先完成登录再进行爬取。
+        </div>
+      </form>
+
+      <div class="spider-progress" id="spider-progress" style="display: none;">
+        <div class="spider-progress-bar">
+          <div
+            class="spider-progress-inner"
+            id="spider-progress-inner"
+            style="width: 0%;"
+          ></div>
+        </div>
+        <div class="spider-progress-text" id="spider-progress-text">
+          正在爬取评论...
+        </div>
+      </div>
+
+      <div class="spider-error" id="spider-error" style="display: none;"></div>
+
+      <div class="spider-result" id="spider-result" style="display: none;">
+        <div class="spider-result-header">
+          爬取成功，以下为全部评论预览：
+        </div>
+        <div class="spider-list" id="spider-list"></div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      const form = document.getElementById("spider-form");
+      const urlInput = document.getElementById("spider-url");
+      const sectorSelect = document.getElementById("spider-sector");
+      const btn = document.getElementById("spider-btn");
+      const progressWrap = document.getElementById("spider-progress");
+      const progressInner = document.getElementById("spider-progress-inner");
+      const progressText = document.getElementById("spider-progress-text");
+      const errorEl = document.getElementById("spider-error");
+      const resultWrap = document.getElementById("spider-result");
+      const listEl = document.getElementById("spider-list");
+
+      const TAG_LABEL_MAP = {
+        1: "正常",
+        2: "争论",
+        3: "广告",
+        4: "@某人",
+        5: "无意义",
+      };
+
+      let timer = null;
+      let progress = 0;
+      let loading = false;
+
+      function getUserId() {
+        let userId = 1;
+        try {
+          const stored = localStorage.getItem("user");
+          if (stored) {
+            const user = JSON.parse(stored);
+            if (user && user.id) {
+              userId = user.id;
+            }
+          }
+        } catch (e) {}
+        return userId;
+      }
+
+      function setLoading(flag) {
+        loading = flag;
+        btn.disabled = flag;
+        btn.textContent = flag ? "爬取中..." : "开始爬取";
+      }
+
+      function setError(msg) {
+        if (msg) {
+          errorEl.textContent = msg;
+          errorEl.style.display = "block";
+        } else {
+          errorEl.textContent = "";
+          errorEl.style.display = "none";
+        }
+      }
+
+      function startProgress() {
+        progress = 10;
+        progressWrap.style.display = "block";
+        updateProgress();
+        if (timer) clearInterval(timer);
+        timer = setInterval(() => {
+          if (progress >= 90) return;
+          const next = progress + Math.random() * 10;
+          progress = next > 90 ? 90 : next;
+          updateProgress();
+        }, 400);
+      }
+
+      function stopProgress() {
+        if (timer) clearInterval(timer);
+        timer = null;
+      }
+
+      function setProgressTo(percent) {
+        progress = percent;
+        updateProgress();
+      }
+
+      function updateProgress() {
+        progressInner.style.width = progress + "%";
+        progressText.textContent =
+          progress < 100
+            ? "正在爬取评论... " + Math.round(progress) + "%"
+            : "爬取完成";
+      }
+
+      function escapeHtml(str) {
+        return String(str).replace(/[&<>"'`=\/]/g, function (s) {
+          return (
+            {
+              "&": "&amp;",
+              "<": "&lt;",
+              ">": "&gt;",
+              '"': "&quot;",
+              "'": "&#39;",
+              "/": "&#x2F;",
+              "`": "&#x60;",
+              "=": "&#x3D;",
+            }[s] || s
+          );
+        });
+      }
+
+      function renderPreview(preview) {
+        listEl.innerHTML = "";
+        if (!Array.isArray(preview) || !preview.length) {
+          resultWrap.style.display = "none";
+          return;
+        }
+
+        preview.forEach((item) => {
+          const tag = item.tag;
+          const label = TAG_LABEL_MAP[tag] || tag || "未标注";
+          const text = item.text || "";
+
+          const div = document.createElement("div");
+          div.className = "comment-item";
+          div.innerHTML =
+            '<div class="comment-tag">' +
+            escapeHtml(label) +
+            '</div><div class="comment-text">' +
+            escapeHtml(text) +
+            "</div>";
+          listEl.appendChild(div);
+        });
+
+        resultWrap.style.display = "block";
+      }
+
+      form.addEventListener("submit", async function (e) {
+        e.preventDefault();
+        if (loading) return;
+
+        const url = (urlInput.value || "").trim();
+        const sector = sectorSelect.value;
+
+        if (!url) {
+          setError("请输入视频URL");
+          return;
+        }
+        if (!sector) {
+          setError("请选择板块");
+          return;
+        }
+
+        setError("");
+        setLoading(true);
+        resultWrap.style.display = "none";
+        startProgress();
+
+        const userId = getUserId();
+
+        try {
+          const resp = await fetch("/api/process", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              url: url,
+              user_id: userId,
+              sector: sector,
+            }),
+          });
+
+          const data = await resp.json();
+
+          if (!data.success) {
+            setError(data.message || "爬取失败");
+            progressWrap.style.display = "none";
+            setProgressTo(0);
+          } else {
+            const preview = data.preview || [];
+            renderPreview(preview);
+            setProgressTo(100);
+
+            // 保存结果到 localStorage，供其他页面使用
+            const payload = {
+              preview: preview,
+              bv: data.bv,
+              url: url,
+              sector: data.sector || sector,
+            };
+            try {
+              localStorage.setItem(
+                "lastVideoResult",
+                JSON.stringify(payload)
+              );
+            } catch (e) {}
+          }
+        } catch (err) {
+          setError("网络错误：" + (err && err.message ? err.message : ""));
+          progressWrap.style.display = "none";
+          setProgressTo(0);
+        } finally {
+          stopProgress();
+          setLoading(false);
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
