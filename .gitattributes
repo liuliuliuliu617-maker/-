@@ -1,0 +1,2 @@
+models/Qwen2.5-3B-Instruct-Local/*.safetensors filter=lfs diff=lfs merge=lfs -text
+models/Qwen2.5-3B-Instruct-Local/*.pt filter=lfs diff=lfs merge=lfs -text
