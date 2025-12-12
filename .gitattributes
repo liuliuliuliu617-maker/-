@@ -1,0 +1,14 @@
+models/Qwen2.5-3B-Instruct-Local/*.safetensors filter=lfs diff=lfs merge=lfs -text
+models/Qwen2.5-3B-Instruct-Local/*.pt filter=lfs diff=lfs merge=lfs -text
+models/ASMR/*.safetensors filter=lfs diff=lfs merge=lfs -text
+models/cos/*.safetensors filter=lfs diff=lfs merge=lfs -text
+models/英雄联盟/*.safetensors filter=lfs diff=lfs merge=lfs -text
+models/FPS/*.safetensors filter=lfs diff=lfs merge=lfs -text
+models/PUBG/*.safetensors filter=lfs diff=lfs merge=lfs -text
+models/LPL/*.safetensors filter=lfs diff=lfs merge=lfs -text
+models/APEX/*.safetensors filter=lfs diff=lfs merge=lfs -text
+models/三角洲/*.safetensors filter=lfs diff=lfs merge=lfs -text
+models/乙游/*.safetensors filter=lfs diff=lfs merge=lfs -text
+models/二创/*.safetensors filter=lfs diff=lfs merge=lfs -text
+models/历史评鉴/*.safetensors filter=lfs diff=lfs merge=lfs -text
+models/时政/*.safetensors filter=lfs diff=lfs merge=lfs -text
