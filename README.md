@@ -12,6 +12,12 @@
 
 --训练文本:对模型进行微调的训练数据存放处
 
---server.py:服务器端代码，使用前请先启动
+后端：
 
---db.py:数据库操作代码，本系统数据库基于opengauss，若使用mysql等其他数据库语言可能会出现冲突，需进行调试
+--db.py ：所有数据库访问逻辑（用户、视频、评论、关键词、v_cnt 统计）。
+
+--server.py ：Flask 服务入口，登录/注册接口、爬取接口 /api/process、关键词接口 /api/keywords、用户视频管理接口 /api/user/videos、/api/user/video_comments，以及页面路由。
+
+--back.sql：数据库 back 的表结构（user / video / comments / keyword），要和db.py配套。
+
+--预测.py：加载本地 Qwen 模型并对评论进行分类（结合关键词规则和大模型），输出类别 ID 和中文标签，供后端入库和展示使用。
