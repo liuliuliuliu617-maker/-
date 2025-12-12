@@ -1,0 +1,124 @@
+/* 登录页整体容器 */
+.login-container {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  font-family: "Inter", sans-serif;
+
+  /* 让所有内容垂直水平居中 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  overflow: hidden;
+}
+
+/* 背景图，撑满 + 模糊 */
+.login-bg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  z-index: -1;
+
+  filter: brightness(0.85) blur(3px);
+}
+
+/* 登录框：玻璃磨砂效果（高级） */
+.login-box {
+  width: 350px;
+  padding: 32px 28px;
+
+  background: rgba(255, 255, 255, 0.18);
+  border-radius: 16px;
+  backdrop-filter: blur(20px);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+
+  display: flex;
+  flex-direction: column;
+
+  animation: fadeIn 0.8s ease forwards;
+}
+
+/* 输入框标签 */
+.login-label {
+  font-size: 15px;
+  margin-top: 12px;
+  margin-bottom: 6px;
+  font-weight: 500;
+  color: #222;
+}
+
+/* 输入框 */
+.login-input {
+  padding: 10px 12px;
+  font-size: 14px;
+  border: 1px solid rgba(255,255,255,0.5);
+  border-radius: 8px;
+  outline: none;
+  background: rgba(255,255,255,0.4);
+  transition: all 0.2s ease;
+}
+
+/* 输入框激活效果 */
+.login-input:focus {
+  background: rgba(255,255,255,0.7);
+  border-color: #0066ff;
+  box-shadow: 0 0 4px rgba(0,102,255,0.4);
+}
+
+/* 登录/注册按钮区域 */
+.btn-group {
+  margin-top: 26px;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* 按钮统一样式 */
+.login-btn,
+.register-btn {
+  width: 48%;
+  padding: 10px 0;
+  border-radius: 8px;
+  cursor: pointer;
+  border: none;
+  font-size: 15px;
+  font-weight: 500;
+  transition: 0.25s ease;
+}
+
+/* 登录按钮 */
+.login-btn {
+  background-color: #1a73e8;
+  color: white;
+}
+.login-btn:hover {
+  background-color: #0f5edc;
+}
+
+/* 注册按钮 */
+.register-btn {
+  background-color: #aaaaaa;
+  color: white;
+}
+.register-btn:hover {
+  background-color: #8e8e8e;
+}
+
+/* 淡入动画 */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.login-title {
+  font-size: 22px;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 15px;
+}

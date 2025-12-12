@@ -1,0 +1,314 @@
+.cd-page {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 40px 16px;
+  background: linear-gradient(135deg, #eef2ff, #ffffff);
+  box-sizing: border-box;
+}
+
+.cd-card {
+  width: 100%;
+  max-width: 640px;
+  background: #ffffff;
+  border-radius: 24px;
+  padding: 24px 24px 28px;
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
+}
+
+.cd-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cd-title {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 700;
+  color: #111827;
+}
+
+.cd-subtitle {
+  margin-top: 6px;
+  font-size: 13px;
+  color: #6b7280;
+}
+
+.cd-back-btn {
+  padding: 6px 16px;
+  border-radius: 999px;
+  border: none;
+  background: #f3f4ff;
+  color: #4f46e5;
+  font-size: 13px;
+  cursor: pointer;
+  transition: background 0.15s ease, transform 0.1s ease;
+}
+
+.cd-back-btn:hover {
+  background: #e0e7ff;
+  transform: translateY(-1px);
+}
+
+.cd-sector {
+  margin-top: 16px;
+  font-size: 14px;
+  color: #4b5563;
+}
+
+.cd-sector-tag {
+  display: inline-block;
+  margin-left: 6px;
+  padding: 2px 10px;
+  border-radius: 999px;
+  background: #eff6ff;
+  color: #1d4ed8;
+  font-size: 13px;
+}
+
+.cd-form {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.cd-form-row {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.cd-label {
+  font-size: 14px;
+  color: #374151;
+  font-weight: 500;
+}
+
+.cd-select,
+.cd-input {
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  padding: 10px 12px;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.cd-select:focus,
+.cd-input:focus {
+  border-color: #4f46e5;
+  box-shadow: 0 0 0 1px rgba(79, 70, 229, 0.35);
+}
+
+.cd-input::placeholder {
+  color: #9ca3af;
+}
+
+.cd-message {
+  font-size: 13px;
+  color: #b91c1c;
+}
+
+/* 输入框样式补充，保持一致 */
+.cd-input {
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  padding: 10px 12px;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.cd-input:focus {
+  border-color: #4f46e5;
+  box-shadow: 0 0 0 1px rgba(79, 70, 229, 0.35);
+}
+
+/* 按钮区域，两个按钮并排 */
+.cd-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+/* 统一按钮基础样式：大小、圆角、字体等完全一致 */
+.cd-submit-btn,
+.cd-delete-btn {
+  flex: 1;
+  padding: 10px 0;
+  border-radius: 999px;
+  border: none;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.08);
+  transition: background 0.15s ease, transform 0.1s ease, box-shadow 0.15s ease;
+}
+
+/* 确认添加按钮（主色） */
+.cd-submit-btn {
+  background: #4f46e5;
+  color: #ffffff;
+  box-shadow: 0 10px 24px rgba(79, 70, 229, 0.4);
+}
+
+.cd-submit-btn:hover {
+  background: #4338ca;
+  transform: translateY(-1px);
+  box-shadow: 0 14px 30px rgba(79, 70, 229, 0.5);
+}
+
+.cd-submit-btn:disabled {
+  opacity: 0.7;
+  cursor: default;
+  box-shadow: none;
+  transform: none;
+}
+
+/* 删除该词按钮（警告色），样式一样只换颜色 */
+.cd-delete-btn {
+  background: #fee2e2;
+  color: #b91c1c;
+}
+
+.cd-delete-btn:hover {
+  background: #fecaca;
+  transform: translateY(-1px);
+  box-shadow: 0 14px 30px rgba(248, 113, 113, 0.5);
+}
+
+.cd-delete-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  box-shadow: none;
+  transform: none;
+}
+/* 关键词表格区域 */
+.cd-keywords-section {
+  margin-top: 24px;
+  padding-top: 16px;
+  border-top: 1px solid #e5e7eb;
+}
+
+.cd-keywords-header {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 10px;
+}
+
+.cd-keywords-title {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: #111827;
+}
+
+.cd-keywords-subtitle {
+  margin: 0;
+  font-size: 13px;
+  color: #6b7280;
+}
+
+.cd-keywords-subtitle span {
+  color: #111827;
+  font-weight: 500;
+}
+
+/* 表格外层，做个轻微滚动和圆角 */
+.cd-table-wrapper {
+  margin-top: 8px;
+  max-height: 260px;
+  overflow: auto;
+  border-radius: 16px;
+  border: 1px solid #e5e7eb;
+  background: #f9fafb;
+}
+
+/* 表格本体 */
+.cd-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+.cd-table thead {
+  position: sticky;
+  top: 0;
+  background: #f3f4ff;
+  z-index: 1;
+}
+
+.cd-table th,
+.cd-table td {
+  padding: 8px 12px;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.cd-table th {
+  font-weight: 600;
+  color: #4b5563;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.cd-table tbody tr:nth-child(even) {
+  background: #f9fafb;
+}
+
+.cd-table tbody tr:nth-child(odd) {
+  background: #ffffff;
+}
+
+/* 空状态 */
+.cd-table-empty {
+  margin-top: 8px;
+  font-size: 13px;
+  color: #9ca3af;
+  padding: 10px 12px;
+  background: #f9fafb;
+  border-radius: 12px;
+}
+
+/* 类别小圆角标签 */
+.cd-tag-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: #eff6ff;
+  color: #1d4ed8;
+  font-size: 12px;
+}
+
+/* 表格里的删除按钮（比大按钮小一号） */
+.cd-table-delete-btn {
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: none;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  background: #fee2e2;
+  color: #b91c1c;
+  box-shadow: 0 4px 10px rgba(248, 113, 113, 0.4);
+  transition: background 0.15s ease, transform 0.1s ease, box-shadow 0.15s ease;
+}
+
+.cd-table-delete-btn:hover {
+  background: #fecaca;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 14px rgba(248, 113, 113, 0.5);
+}
+
+.cd-table-delete-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  box-shadow: none;
+  transform: none;
+}

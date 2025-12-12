@@ -1,0 +1,500 @@
+/* 整体页面布局 */
+.home-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #f9fafb; /* 淡灰色背景 */
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: #111827; /* 深色字体 */
+}
+
+/* 顶部导航条 */
+.home-nav {
+  height: 60px;
+  padding: 0 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #ffffff;
+  box-shadow: 0 4px 8px rgba(15, 23, 42, 0.08);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  border-bottom: 1px solid #e5e7eb; /* 增加分割线 */
+}
+
+.home-nav-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.home-logo-circle {
+  width: 40px;
+  height: 40px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #2563eb, #60a5fa);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.home-logo-text {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.home-logo-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #111827;
+}
+
+.home-logo-subtitle {
+  font-size: 12px;
+  color: #6b7280;
+}
+
+.home-nav-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.home-nav-btn {
+  padding: 8px 18px;
+  border-radius: 999px;
+  border: 1px solid #e5e7eb;
+  background: #f9fafb;
+  font-size: 14px;
+  color: #4b5563;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.home-nav-btn:hover {
+  background: #eef2ff;
+  border-color: #c7d2fe;
+  color: #2563eb; /* 悬停时变蓝 */
+}
+
+.home-nav-link {
+  background: transparent;
+  border: none;
+  font-size: 14px;
+  color: #374151;
+  cursor: pointer;
+  margin-right: 8px;
+}
+
+.home-nav-link:hover {
+  color: #2563eb;
+}
+
+/* 主体区域：左右两列 */
+.home-main {
+  display: grid;
+  grid-template-columns: 1.1fr 1.6fr;
+  gap: 24px;
+  padding: 24px 32px;
+}
+
+/* 左侧区域 */
+.home-left {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* 视频信息卡片 */
+.video-card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 16px;
+  display: flex;
+  gap: 16px;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.1);
+}
+
+.video-cover {
+  width: 160px;
+  height: 90px;
+  border-radius: 12px;
+  object-fit: cover;
+  background: #e5e7eb;
+}
+
+.video-cover.placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #6b7280;
+  font-size: 14px;
+}
+
+.video-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.video-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #111827;
+}
+
+.video-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.video-tag {
+  padding: 4px 12px;
+  border-radius: 999px;
+  background: #eff6ff;
+  color: #1d4ed8;
+  font-size: 12px;
+}
+
+.video-bv {
+  font-size: 13px;
+  color: #6b7280;
+}
+
+.video-link {
+  font-size: 13px;
+  color: #2563eb;
+  text-decoration: none;
+}
+
+.video-link:hover {
+  text-decoration: underline;
+}
+
+/* 分类面板 */
+.category-panel {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 16px;
+  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.08);
+}
+
+.category-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #111827;
+  margin-bottom: 12px;
+}
+
+.category-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.category-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: 999px;
+  border: 1px solid #e5e7eb;
+  background: #f9fafb;
+  font-size: 14px;
+  color: #4b5563;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.category-btn:hover {
+  background: #eef2ff;
+  border-color: #c7d2fe;
+}
+
+.category-btn-active {
+  background: #2563eb;
+  border-color: #1d4ed8;
+  color: #ffffff;
+}
+
+.category-count {
+  font-size: 12px;
+  padding: 4px 8px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.18);
+}
+
+.category-tip {
+  font-size: 12px;
+  color: #9ca3af;
+  margin-top: 12px;
+  line-height: 1.5;
+}
+
+/* 左下角：概览卡片（饼状图 + 总结 + 词云） */
+.overview-card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 16px;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.overview-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.overview-title {
+  font-size: 15px;
+  font-weight: 600;
+  color: #111827;
+}
+
+.overview-sub {
+  font-size: 13px;
+  color: #6b7280;
+}
+
+.overview-highlight {
+  color: #2563eb;
+  font-weight: 600;
+}
+
+/* 上半部分：饼状图 + 总结 */
+.overview-top {
+  display: grid;
+  grid-template-columns: 1.1fr 1.4fr;
+  gap: 12px;
+  align-items: stretch;
+}
+
+.overview-pie {
+  min-height: 200px;
+}
+
+.overview-empty {
+  font-size: 13px;
+  color: #9ca3af;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 200px;
+}
+
+.overview-summary {
+  background: #f9fafb;
+  border-radius: 12px;
+  padding: 10px 12px;
+  border: 1px solid #e5e7eb;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.overview-summary-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #111827;
+}
+
+.overview-summary-text {
+  font-size: 13px;
+  color: #4b5563;
+  line-height: 1.6;
+}
+
+/* 词云区域 */
+.overview-wordcloud-section {
+  margin-top: 4px;
+  border-top: 1px dashed #e5e7eb;
+  padding-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.overview-wordcloud-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #111827;
+}
+
+.overview-wordcloud-img-wrapper {
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid #e5e7eb;
+}
+
+.overview-wordcloud-img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* 前端文字词云备用样式 */
+.overview-wordcloud-react {
+  width: 100%;
+  height: 260px;   /* 适当加高 */
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  background: #ffffff;
+  padding: 4px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;  /* 居中词云 */
+  justify-content: center;
+}
+.overview-summary-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.overview-summary-logo {
+  width: 40px;      /* 自己按效果调大小 */
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+
+/* 错误提示 */
+.home-error {
+  font-size: 13px;
+  color: #b91c1c;
+}
+
+/* 右侧评论区域 */
+.home-right {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 16px;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.1);
+  display: flex;
+  flex-direction: column;
+  max-height: calc(100vh - 96px);
+}
+
+.comment-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.comment-header-title {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.comment-header-sub {
+  font-size: 13px;
+  color: #6b7280;
+}
+
+/* 评论列表滚动区域 */
+.comment-list {
+  flex: 1;
+  overflow-y: auto;
+  padding-right: 6px;
+  margin-top: 6px;
+}
+
+/* 单条评论 */
+.comment-item {
+  display: flex;
+  gap: 10px;
+  padding: 10px 8px;
+  border-radius: 10px;
+  border-bottom: 1px solid #f3f4f6;
+  background: #ffffff;
+  transition: all 0.2s ease;
+}
+
+.comment-item:hover {
+  background: #f3f4f6;
+  transform: translateX(2px);
+}
+
+.comment-tag {
+  flex-shrink: 0;
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: bold;
+  color: white;
+  text-align: center;
+}
+
+/* 不同类别的标签背景色 */
+.tag-正常 {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.tag-争论 {
+  background: #fee2e2;
+  color: #b91c1c;
+}
+
+.tag-@某人 {
+  background: #e0f2fe;
+  color: #075985;
+}
+
+.tag-广告 {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.tag-无意义 {
+  background: #e5e7eb;
+  color: #374151;
+}
+
+/* 评论文本 */
+.comment-text {
+  font-size: 14px;
+  color: #111827;
+  line-height: 1.6;
+  flex-grow: 1;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+/* 如果没有评论，则显示此提示 */
+.comment-empty {
+  padding: 24px 6px;
+  text-align: center;
+  font-size: 14px;
+  color: #9ca3af;
+}
+
+/* 响应式布局：在屏幕较小的设备上，视频卡片和评论区域会变为单列布局 */
+@media (max-width: 900px) {
+  .home-main {
+    grid-template-columns: 1fr;
+  }
+
+  .home-right {
+    max-height: none;
+  }
+
+  .overview-top {
+    grid-template-columns: 1fr;
+  }
+}

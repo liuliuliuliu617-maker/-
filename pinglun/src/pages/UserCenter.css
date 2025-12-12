@@ -1,0 +1,231 @@
+.uc-page {
+  min-height: 100vh;
+  padding: 32px 48px;
+  background: radial-gradient(circle at top left, #f5f7ff, #ffffff);
+  box-sizing: border-box;
+}
+
+.uc-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.uc-title {
+  font-size: 24px;
+  font-weight: 700;
+  color: #1f2933;
+  margin: 0;
+}
+
+.uc-subtitle {
+  font-size: 14px;
+  color: #6b7280;
+  margin-top: 6px;
+}
+
+.uc-back-btn {
+  padding: 8px 18px;
+  border-radius: 999px;
+  border: none;
+  background: #2563eb;
+  color: #fff;
+  font-size: 14px;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(37, 99, 235, 0.25);
+  transition: transform 0.1s ease, box-shadow 0.1s ease, background 0.2s ease;
+}
+
+.uc-back-btn:hover {
+  background: #1d4ed8;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(37, 99, 235, 0.35);
+}
+
+.uc-status {
+  margin-top: 16px;
+  font-size: 14px;
+  color: #4b5563;
+}
+
+.uc-error {
+  color: #b91c1c;
+}
+
+.uc-summary {
+  margin: 12px 0 20px;
+  font-size: 15px;
+  color: #374151;
+}
+
+.uc-summary-number {
+  font-weight: 700;
+  color: #2563eb;
+}
+
+.uc-empty {
+  margin-top: 40px;
+  text-align: center;
+  color: #9ca3af;
+}
+
+.uc-video-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 16px;
+}
+
+.uc-video-card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 14px 16px;
+  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.05);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* 视频信息部分 */
+.uc-video-main {
+  margin-bottom: 4px;
+}
+
+.uc-video-bv {
+  font-weight: 600;
+  color: #111827;
+  margin-bottom: 6px;
+}
+
+.uc-video-meta {
+  font-size: 12px;
+  color: #6b7280;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.uc-video-sector {
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: #eff6ff;
+  color: #1d4ed8;
+}
+
+.uc-video-time {
+  opacity: 0.8;
+}
+
+/* 操作区：B站链接 + 评论按钮 */
+.uc-video-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.uc-video-link {
+  font-size: 13px;
+  color: #2563eb;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.uc-video-link:hover {
+  text-decoration: underline;
+}
+
+.uc-comment-btn {
+  margin-left: auto;
+  padding: 6px 12px;
+  border-radius: 999px;
+  border: 1px solid #e5e7eb;
+  background: #f9fafb;
+  font-size: 12px;
+  color: #374151;
+  cursor: pointer;
+  transition: background 0.15s ease, box-shadow 0.15s ease, transform 0.1s ease;
+  white-space: nowrap;
+}
+
+.uc-comment-btn:hover:not(:disabled) {
+  background: #eff6ff;
+  box-shadow: 0 4px 10px rgba(148, 163, 184, 0.35);
+  transform: translateY(-1px);
+}
+
+.uc-comment-btn:disabled {
+  cursor: default;
+  opacity: 0.6;
+}
+
+/* 评论区域 */
+.uc-comments {
+  margin-top: 6px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  max-height: 220px;
+  overflow-y: auto;
+}
+
+.uc-comments-empty {
+  font-size: 13px;
+  color: #9ca3af;
+}
+
+.uc-comment-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 13px;
+  color: #374151;
+  padding: 6px 0;
+  border-bottom: 1px dashed #e5e7eb;
+}
+
+.uc-comment-item:last-child {
+  border-bottom: none;
+}
+
+.uc-comment-tag {
+  flex-shrink: 0;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: #dbeafe;
+  color: #1d4ed8;
+  font-size: 12px;
+}
+
+.uc-comment-text {
+  line-height: 1.5;
+}
+
+/* 小屏幕适配 */
+@media (max-width: 768px) {
+  .uc-page {
+    padding: 20px 16px;
+  }
+
+  .uc-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .uc-video-list {
+    grid-template-columns: 1fr;
+  }
+
+  .uc-video-actions {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  .uc-comment-btn {
+    width: auto;
+  }
+}

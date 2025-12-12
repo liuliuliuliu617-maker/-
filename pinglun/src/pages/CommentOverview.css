@@ -1,0 +1,119 @@
+.ov-page {
+  min-height: 100vh;
+  padding: 32px 40px 40px;
+  background: radial-gradient(circle at top, #eff6ff 0%, #ffffff 55%);
+  box-sizing: border-box;
+}
+
+.ov-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.ov-title {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 700;
+  color: #111827;
+}
+
+.ov-subtitle {
+  margin-top: 6px;
+  font-size: 13px;
+  color: #6b7280;
+}
+
+.ov-back-btn {
+  padding: 8px 18px;
+  border-radius: 999px;
+  border: none;
+  background: #0ea5e9;
+  color: #ffffff;
+  font-size: 14px;
+  cursor: pointer;
+  box-shadow: 0 10px 22px rgba(14, 165, 233, 0.45);
+  transition: background 0.15s ease, transform 0.1s ease,
+    box-shadow 0.15s ease;
+}
+
+.ov-back-btn:hover {
+  background: #0284c7;
+  transform: translateY(-1px);
+  box-shadow: 0 14px 28px rgba(14, 165, 233, 0.55);
+}
+
+.ov-empty {
+  margin-top: 40px;
+  text-align: center;
+  font-size: 14px;
+  color: #9ca3af;
+}
+
+.ov-section {
+  margin-top: 18px;
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 18px 20px 20px;
+  box-shadow: 0 14px 32px rgba(15, 23, 42, 0.07);
+}
+
+.ov-summary-card {
+  margin-top: 10px;
+}
+
+.ov-section-title {
+  margin: 0 0 8px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #111827;
+}
+
+.ov-section-tip {
+  margin: 0 0 10px;
+  font-size: 12px;
+  color: #9ca3af;
+}
+
+.ov-summary-count {
+  font-size: 14px;
+  color: #374151;
+  margin-bottom: 6px;
+}
+
+.ov-highlight-number {
+  color: #0ea5e9;
+  font-weight: 700;
+}
+
+.ov-summary-text {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.7;
+  color: #4b5563;
+}
+
+.ov-wordcloud {
+  margin-top: 6px;
+  min-height: 160px;
+  border-radius: 16px;
+  background: radial-gradient(circle at top left, #f9fafb, #eff6ff);
+  padding: 16px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 14px;
+  align-items: flex-start;
+}
+
+.ov-word {
+  font-weight: 600;
+  color: #0f172a;
+  white-space: nowrap;
+  transition: transform 0.1s ease, text-shadow 0.1s ease;
+}
+
+.ov-word:hover {
+  transform: translateY(-2px) scale(1.05);
+  text-shadow: 0 4px 10px rgba(15, 23, 42, 0.25);
+}
